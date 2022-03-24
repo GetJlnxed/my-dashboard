@@ -1,19 +1,36 @@
 <template>
   <div id="app" class="container container--row nowrap">
-    <nav class="nav container container--column align-center" :class="{ 'nav--active': navMenuOpen }">
+    <nav
+      class="nav container container--column align-center"
+      :class="{
+        'nav--active': navMenuOpen,
+      }"
+    >
       <div class="nav__wrapper container container--column align-center fluid">
         <p class="nav__title text text--h5 text--bold">MyDashboard</p>
-        <button class="button nav__button" @click="$router.push('/')">Dashboard</button>
-        <button class="button nav__button" @click="$router.push('/about')">Customers</button>
-        <button class="button nav__button">Invoices</button>
-        <button class="button nav__button">Items</button>
+        <router-link active-class="button-active" class="button nav__button" :to="{ name: 'Home' }"
+          >Dashboard</router-link
+        >
+        <router-link active-class="button-active" class="button nav__button" :to="'/about'">Customers</router-link>
+        <router-link active-class="button-active" class="button nav__button" :to="'/1'">Home</router-link>
+        <router-link active-class="button-active" class="button nav__button" :to="'/2'">Invoices</router-link>
+        <router-link active-class="button-active" class="button nav__button" :to="'/3'">Items</router-link>
         <!-- <font-awesome-icon :icon="['fas', 'credit-card']"></font-awesome-icon> -->
       </div>
     </nav>
-    <div class="main container container--column" :class="{ 'main--shifted': navMenuOpen }">
-      <main-header @opener-clicked="toggleNavMenu"></main-header>
+    <div
+      class="main container container--column"
+      :class="{
+        'main--shifted': navMenuOpen,
+      }"
+    >
+      <main-header :navMenuOpened="navMenuOpen" @opener-clicked="toggleNavMenu"></main-header>
       <div class="main__content">
-        <router-view />
+        <router-view v-slot="{ Component }">
+          <transition name="fade" appear>
+            <component :is="Component" />
+          </transition>
+        </router-view>
       </div>
     </div>
   </div>
@@ -82,7 +99,7 @@ export default {
   position relative
   left 0
   overflow-x hidden
-  transition 1s
+  transition left 0.5s, width 0.5s
 
   &.main--shifted
     width calc(100% - 300px)
@@ -93,7 +110,7 @@ export default {
   box-sizing border-box
 
 .nav
-  transition 1s
+  transition left 0.5s
   width 300px
   background-color $color-dark-blue
   position relative
@@ -122,4 +139,7 @@ export default {
     &:hover
       background-color transparent
       color $color-white
+
+  .current-link
+    background-color $color-white
 </style>
