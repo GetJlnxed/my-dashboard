@@ -1,0 +1,28 @@
+// fade
+.fade-enter-active
+  transition opacity 0.5s
+
+.fade-leave-active
+  transition opacity 0.3s
+
+.fade-enter, .fade-leave-to
+  opacity 0
+
+// fade - slow
+.fade-slow-enter-active
+  transition opacity 4s
+
+.fade-slow-leave-active
+  transition opacity 1.3s ease
+
+.fade-slow-enter, .fade-slow-leave-to
+  opacity 0
+
+.slide-fade-enter-active
+  transition all 0.3s ease
+
+.slide-fade-leave-active
+  transition all 0.8s cubic-bezier(1, 0.5, 0.8, 1)
+
+.slide-fade-enter, .slide-fade-leave-to, transform translateX(10px)
+  opacity 0

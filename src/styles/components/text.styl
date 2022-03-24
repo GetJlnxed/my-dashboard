@@ -1,0 +1,60 @@
+text-props(size, weight)
+  font-size size
+  font-weight weight
+
+.text
+  padding 0
+  margin 0
+  font-size 1rem
+  font-weight 400
+  color $color-black
+
+  &--h1
+    text-props(6rem, 300)
+
+  &--h2
+    text-props(3.75rem, 300)
+
+  &--h3
+    text-props(3rem, 400)
+
+  &--h4
+    text-props(2.2rem, 400)
+
+  &--h5
+    text-props(1.5rem, 400)
+
+  &--h6
+    text-props(1.25rem, 400)
+
+  &--subtitle
+    text-props(1rem, 400)
+
+  &--subtitle2
+    text-props(0.875rem, 500)
+
+  &--body2
+    text-props(0.875rem, 400)
+
+  &--button
+    text-props(0.875rem, 500)
+    text-transform uppercase
+    letter-spacing 0.09em
+
+  &--caption
+    text-props(0.75rem, 400)
+
+  &--regular
+    font-weight 400
+
+  &--bold
+    font-weight 700
+
+  &.align-center
+    text-align center
+
+  &.align-end
+    text-align right
+
+  &.align-start
+    text-align left

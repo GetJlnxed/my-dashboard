@@ -1,0 +1,40 @@
+.container
+  display flex
+  height auto
+  box-sizing border-box
+
+  &--row
+    flex-flow row wrap
+
+  &--column
+    flex-flow column wrap
+
+  &.fluid
+    height 100%
+
+  &.align-start
+    align-items flex-start
+
+  &.align-end
+    align-items flex-end
+
+  &.align-center
+    align-items center
+
+  &.justify-start
+    justify-content flex-start
+
+  &.justify-end
+    justify-content flex-end
+
+  &.justify-center
+    justify-content center
+
+  &.justify-space-around
+    justify-content space-around
+
+  &.justify-space-between
+    justify-content space-between
+
+  &.nowrap
+    flex-wrap nowrap
