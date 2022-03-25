@@ -27,7 +27,7 @@
       <main-header :navMenuOpened="navMenuOpen" @opener-clicked="toggleNavMenu"></main-header>
       <div class="main__content">
         <router-view v-slot="{ Component }">
-          <transition name="fade" appear>
+          <transition name="fade" mode="out-in">
             <component :is="Component" />
           </transition>
         </router-view>
