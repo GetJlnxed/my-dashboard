@@ -6,6 +6,9 @@
         <div class="opener__part"></div>
         <div class="opener__part"></div>
       </div>
+      <transition name="fade" appear>
+        <h1 class="header__title" v-if="headerData.appear" :key="'header'">{{ headerData.title }}</h1>
+      </transition>
       <div class="header__search"></div>
       <div class="header__avatar"></div>
     </div>
@@ -19,10 +22,16 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "main-header",
   props: {
     navMenuOpened: Boolean,
+  },
+  computed: {
+    ...mapGetters({
+      headerData: "header/getHeaderData",
+    }),
   },
 };
 </script>
@@ -39,12 +48,14 @@ $burger-margin = 6px
 
   .header__title
     align-self flex-end
+    margin-left 15px
 
   .opener
     width 30px
     height 30px
     cursor pointer
     position relative
+    margin-top 10px
 
     .opener__part
       position absolute
