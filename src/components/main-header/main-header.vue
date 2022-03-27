@@ -75,6 +75,7 @@ $burger-margin = 6px
         margin-top: $burger-margin * 3
 
     &.closed
+
       .opener__part
         &:first-of-type
           transform rotate(45deg)
